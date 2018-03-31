@@ -14,17 +14,17 @@ public class SocketScanner {
             System.out.print("Enter {host} {minport} {maxport} > ");
             String input = scanner.nextLine();
             String[] split = input.split(" ");
-            if (split.length != 3) {
+            if (split.length == 0) {
                 continue;
             }
+            String host;
             int minPort;
             int maxPort;
-            String host;
+            host = split[0];
+            if (host.equalsIgnoreCase("exit")) {
+                break;
+            }
             try {
-                host = split[0];
-                if (host.equalsIgnoreCase("exit")) {
-                    break;
-                }
                 minPort = Integer.parseInt(split[1]);
                 maxPort = Integer.parseInt(split[2]);
             } catch (Exception ex) {
